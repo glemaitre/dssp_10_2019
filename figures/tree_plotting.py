@@ -1,7 +1,6 @@
 import numpy as np
 from numbers import Integral
 
-from sklearn.externals import six
 from sklearn.tree.export import _color_brew, _criterion, _tree
 
 
@@ -185,7 +184,7 @@ class _BaseTreeExporter(object):
         if self.impurity:
             if isinstance(criterion, _criterion.FriedmanMSE):
                 criterion = "friedman_mse"
-            elif not isinstance(criterion, six.string_types):
+            elif not isinstance(criterion, str):
                 criterion = "impurity"
             if labels:
                 node_string += '%s = ' % criterion
